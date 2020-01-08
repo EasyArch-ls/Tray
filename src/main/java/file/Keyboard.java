@@ -25,8 +25,8 @@ public class Keyboard {
             hashMap=new HashMap<>();
             hashMap1=new HashMap<>();
             System.out.println("=====");
-            Peizhi.readFile("键位",hashMap1,"1");
-            Peizhi.readFile("配置",hashMap,"0");
+            Peizhi.readFile("键位.txt",hashMap1,"1");
+            Peizhi.readFile("配置.txt",hashMap,"0");
         } catch (AWTException e) {
             e.printStackTrace();
         }

@@ -9,7 +9,7 @@ public class MyClient {
     public static void main(String[] args) throws Exception {
         Socket s = new Socket("192.168.1.105", 6666);
         // 客户端启动ClientThread线程不断读取来自服务器的数据
-        new Thread(new ClientThread(s)).start();   // ①
+        new Thread(new ClientThread(s)).start();
         // 获取该Socket对应的输出流
         PrintStream ps = new PrintStream(s.getOutputStream());
         String line = null;

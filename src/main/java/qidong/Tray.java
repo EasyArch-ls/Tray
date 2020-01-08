@@ -1,6 +1,7 @@
 package qidong;
 
 import MultiThread.server.MyServer;
+import file.FileListener;
 import file.Peizhi;
 import file.Keyboard;
 
@@ -56,7 +57,7 @@ public class Tray {
                         }
                     }
                     System.out.println(x);
-                    File file=new File("键位");
+                    File file=new File("键位.txt");
                     if(!file.exists()){
                         try {
                             file.createNewFile();
@@ -76,10 +77,15 @@ public class Tray {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     // 点击打开菜单时显示窗口
+                    try {
+                        FileListener.jiankong();
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
                     MyServer myServer=new MyServer();
                     thread=new Thread(myServer);
                     if (thread!=null){
-                        Peizhi.readFile("键位", Keyboard.hashMap1,"1");
+                        Peizhi.readFile("键位.txt", Keyboard.hashMap1,"1");
                     }
                     thread.start();
                     System.out.println(Thread.currentThread().getId());
