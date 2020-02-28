@@ -1,5 +1,7 @@
 package file;
 
+import qidong.Tray;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,7 +38,7 @@ public class Peizhi {
     }
 
     public static void main(String[] args) {
-        Peizhi peizhi = new Peizhi();
+        System.out.println(Tray.path+"============");
 
     }
 

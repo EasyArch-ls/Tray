@@ -1,6 +1,7 @@
 package file;
 
 import file.Peizhi;
+import qidong.Tray;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -25,8 +26,8 @@ public class Keyboard {
             hashMap=new HashMap<>();
             hashMap1=new HashMap<>();
             System.out.println("=====");
-            Peizhi.readFile("键位.txt",hashMap1,"1");
-            Peizhi.readFile("配置.txt",hashMap,"0");
+            Peizhi.readFile(Tray.path+"键位.txt",hashMap1,"1");
+            Peizhi.readFile(Tray.path+"配置.txt",hashMap,"0");
         } catch (AWTException e) {
             e.printStackTrace();
         }

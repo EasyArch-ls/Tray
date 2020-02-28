@@ -23,7 +23,8 @@ public class IpAddress {
                 ip = address.nextElement();
                 if (!ip.isSiteLocalAddress() && !ip.isLoopbackAddress() && ip.getHostAddress().indexOf(":") == -1) {// 外网IP
                     netip = ip.getHostAddress();
-                    finded = true;
+                    System.out.println(netip);
+                   // finded = true;
                     break;
                 } else if (ip.isSiteLocalAddress() && !ip.isLoopbackAddress() && ip.getHostAddress().indexOf(":") == -1) {// 内网IP
                     localip = ip.getHostAddress();
@@ -33,16 +34,26 @@ public class IpAddress {
         if (netip != null && !"".equals(netip)) {
             try {
                 Myaddress = InetAddress.getByName(netip);
+                System.out.println(netip);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
         } else {
             try {
                  Myaddress = InetAddress.getByName(localip);
+                System.out.println(localip);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
         }
         return Myaddress;
+    }
+
+    public static void main(String[] args) {
+        try {
+            IpAddress.getInnetIp();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
     }
 }
